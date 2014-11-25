@@ -1,7 +1,7 @@
 #
-# Chrome Dockerfile
+# Chrome with Extension Dockerfile
 #
-# https://github.com/dockerfile/chrome
+# https://github.com/ghilead/chrome
 #
 
 # Pull base image.
