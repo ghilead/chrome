@@ -16,6 +16,8 @@ ENV USER root
 RUN mkdir /root/.vnc && chmod 700 /root/.vnc
 COPY passwd /root/.vnc/
 
+RUN echo password | vncpasswd -f > /root/.vnc/passwd
+
 # Install Chromium.
 RUN \
  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
@@ -26,16 +28,15 @@ RUN \
 
 ENV DISPLAY :1
 
-# Define working directory.
-WORKDIR /data
-
 # Define default command.
 
-CMD (USER=root sudo vncserver :1 -geometry 1280x800 -depth 24) && \ 
+CMD (whoami && USER=root sudo vncserver :1 -geometry 1280x800 -depth 24) && \ 
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     bash
 
+# Define working directory.
+WORKDIR /data
 
 # Expose ports.
 EXPOSE 5901
