@@ -13,7 +13,7 @@ RUN mkdir /etc/opt/chrome && \
 
 COPY chrome.json /etc/opt/chrome/policies/managed/
 ENV USER root
-RUN mkdir /root/.vnc
+RUN mkdir /root/.vnc && chmod 700 /root/.vnc
 COPY passwd /root/.vnc/
 
 # Install Chromium.
@@ -31,7 +31,7 @@ WORKDIR /data
 
 # Define default command.
 
-CMD (vncserver :1 -geometry 1280x800 -depth 24) && \ 
+CMD (USER=root vncserver :1 -geometry 1280x800 -depth 24) && \ 
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     bash
