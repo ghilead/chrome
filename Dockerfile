@@ -30,7 +30,8 @@ ENV DISPLAY :1
 
 # Define default command.
 
-CMD (whoami && USER=root sudo vncserver :1 -geometry 1280x800 -depth 24) && \ 
+CMD (echo password | vncpasswd -f > /root/.vnc/passwd) && \
+    (USER=root vncserver :1 -geometry 1280x800 -depth 24) && \ 
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     bash
