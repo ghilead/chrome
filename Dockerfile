@@ -31,7 +31,7 @@ WORKDIR /data
 
 # Define default command.
 
-CMD (USER=root vncserver :1 -geometry 1280x800 -depth 24) && \ 
+CMD (cat ~/.vnc/passwd && USER=root vncserver :1 -geometry 1280x800 -depth 24) && \ 
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     bash
