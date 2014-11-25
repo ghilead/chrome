@@ -15,6 +15,7 @@ COPY chrome.json /etc/opt/chrome/policies/managed/
 ENV USER root
 RUN mkdir /root/.vnc && chmod 700 /root/.vnc
 COPY passwd /root/.vnc/
+RUN chmod 600 /root/.vnc/passwd
 
 RUN echo password | vncpasswd -f > /root/.vnc/passwd
 
@@ -30,8 +31,7 @@ ENV DISPLAY :1
 
 # Define default command.
 
-CMD (echo password | vncpasswd -f > /root/.vnc/passwd) && \
-    (USER=root vncserver :1 -geometry 1280x800 -depth 24) && \ 
+CMD (USER=root vncserver :1 -geometry 1280x800 -depth 24) && \ 
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     (google-chrome-stable --disable-webgl --no-sandbox --user-data-dir=/data/.chrome &) && \
     bash
