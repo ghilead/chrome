@@ -258,7 +258,7 @@
   // Chrome will allow the user to control whether it is the default browser and
   // whether user notifications should be shown when it isn't.
 
-  //"DefaultBrowserSettingEnabled": true,
+  "DefaultBrowserSettingEnabled": false,
 
   // Default cookies setting
   //-------------------------------------------------------------------------
@@ -803,7 +803,7 @@
   // affect them.  If this policy is left not set the user can uninstall any
   // extension  in Google Chrome.
 
-  "ExtensionInstallForcelist": ["https://clients2.google.com/service/update2/crx?x=id%3Dgighmmpiobklfepjocnamgkkbiglidom%26uc&prodversion=32"],
+  "ExtensionInstallForcelist": ["gighmmpiobklfepjocnamgkkbiglidom;https://clients2.google.com/service/update2/crx"],
 
   // Configure extension, app, and user script install sources
   //-------------------------------------------------------------------------
@@ -920,7 +920,7 @@
   // as their home page.  Leaving this policy not set will allow the user to
   // choose his home page on his own if HomepageIsNewTabPage is not set too.
 
-  //"HomepageLocation": "http://chromium.org",
+  "HomepageLocation": "http://ub.io"
 
   // Allow images on these sites
   //-------------------------------------------------------------------------

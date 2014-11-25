@@ -7,9 +7,11 @@
 # Pull base image.
 FROM dockerfile/ubuntu-desktop
 
-RUN mkdir /etc/opt/chrome
-RUN mkdir /etc/opt/chrome/policies
-COPY chrome.json /etc/opt/chrome/policies/
+RUN mkdir /etc/opt/chrome && \
+    mkdir /etc/opt/chrome/policies && \
+    mkdir /etc/opt/chrome/policies/managed
+
+COPY chrome.json /etc/opt/chrome/policies/managed/
 ENV USER root
 RUN mkdir /root/.vnc
 COPY passwd /root/.vnc/
