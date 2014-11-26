@@ -803,7 +803,7 @@
   // affect them.  If this policy is left not set the user can uninstall any
   // extension  in Google Chrome.
 
-  "ExtensionInstallForcelist": ["gighmmpiobklfepjocnamgkkbiglidom;https://clients2.google.com/service/update2/crx"],
+  // "ExtensionInstallForcelist": ["gighmmpiobklfepjocnamgkkbiglidom;https://clients2.google.com/service/update2/crx"],
 
   // Configure extension, app, and user script install sources
   //-------------------------------------------------------------------------
