@@ -20,6 +20,11 @@ This repository contains **Dockerfile** of [Chrome](https://www.google.com/chrom
 
 ### Usage
 
+    boot2docker init
+    boot2docker up
+    export DOCKER_HOST=tcp://192.168.59.103:2376
+    export DOCKER_CERT_PATH=~/.boot2docker/certs/boot2docker-vm
+    export DOCKER_TLS_VERIFY=1
     docker run -it --rm -p 5901:5901 ghilead/chrome
 
 
